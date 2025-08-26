@@ -4,6 +4,9 @@ name: obsidian_import_pr
 on:
   schedule:
     - cron: "*/10 * * * *"  # alle 10min
+  push:
+    branches:
+      - obsidian-import
 
 jobs:
   create-pr:
