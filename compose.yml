@@ -1,0 +1,34 @@
+---
+services:
+  mkdocs-dev:
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    ports:
+      - "${PORT}:8000"
+    volumes:
+      - ./mkdocs.yml:/docs/mkdocs.yml
+      - ./docs:/docs/docs
+      - ./macros:/docs/macros
+      - mkdocs_site:/docs/site  # anonymes Volume
+    restart: unless-stopped
+    command: mkdocs serve -a 0.0.0.0:8000
+
+  mkdocs-build:
+    build:
+      context: .
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    volumes:
+      - ./site:/docs/site
+      - ./mkdocs.yml:/docs/mkdocs.yml
+      - ./docs:/docs/docs
+      - ./macros:/docs/macros
+    command: mkdocs build
+
+
+volumes:
+  mkdocs_site:

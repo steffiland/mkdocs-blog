@@ -1,0 +1,104 @@
+site_name: HookieWookie
+#site_url: https://hookiewookie.github.io
+theme:
+  name: material
+  palette:
+    # see here: https://jameswillett.dev/getting-started-with-material-for-mkdocs/#toggle-lightdark-modes
+    # switching light/dark automatic based on time of the day:
+    # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#automatic-light-dark-mode
+    # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#custom-colors
+
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: green
+      accent: deep purple
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+      accent: deep orange
+  # Material for MkDocs supports any Google font directly out of the box. https://fonts.google.com/?query=Montserrat
+  # for using other fonts, see https://squidfunk.github.io/mkdocs-material/setup/changing-the-fonts/
+  font:
+    text: Merriweather Sans
+    code: Red Hat Mono
+  # for own logo, instead of icon/logo, set /theme/logo to assets/logo.png and add file to docs/assets/logo.png
+  icon:
+    # https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+    logo:  material/deskphone
+  #logo: assets/logo.png
+  #favicon: assets/favicon.png
+  features:
+#    - navigation.tabs
+#    - navigation.top
+#    - search.highlight
+#    - search.suggest
+#    - toc.integrate
+#    - content.code.annotate
+#    - content.code.copy
+#    - content.code.fold
+#    - content.tabs.link
+#    - header.autohide
+#    - navigation.sections
+#    - navigation.instant
+#    - navigation.expand
+#    - navigation.tracking
+#    - navigation.indexes
+    - navigation.footer
+#    - footer.social
+#    - footer.icons
+#    - palette.toggle
+#    - palette.switcher
+#  icon:
+#    repo: fontawesome/brands/github
+#  logo: images/logo.png
+#  favicon: images/favicon.ico
+
+# https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search
+markdown_extensions:
+  - attr_list
+  #### emoji:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  #### code highlighting:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      ## add support for inline mermaid diagrams
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  #### tabbed content:
+  - pymdownx.tabbed:
+      alternate_style: true
+  #### task lists:
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  #### callouts / admonitions:
+  - admonition
+  - pymdownx.details
+
+plugins:
+  - blog:
+      post_url_date_format: yyyy/MM
+
+extra:
+  social:
+    - icon: simple/linktree
+      link: https://linktr.ee/HookieWookie
+    - icon: simple/instagram
+      link: https://www.instagram.com/hookiewookie_crochet/
+
+copyright: Copyright &copy; 2025 HookieWookie
