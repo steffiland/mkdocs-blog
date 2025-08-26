@@ -21,3 +21,11 @@ jobs:
           body: Auto-created Pull Request
           branch: ${{ github.ref }} # The branch where you commit
           base: main # Don't forget to
+
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: create pull request
+        run: gh pr create -B main -H obsidian-import --title 'Merge obsidian-import into main' --body 'Created by Github action'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
