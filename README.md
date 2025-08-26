@@ -2,4 +2,3 @@
 
 * foobar.
 * baar foo.
-* lalala
