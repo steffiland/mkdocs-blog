@@ -9,26 +9,12 @@ jobs:
   create-pr:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Set Branch Name
-        run: echo "BRANCH_NAME=obsidian-import" >> $GITHUB_ENV
-
-      - name: Check for existing PR
-        id: check_pr
-        run: |
-          EXISTING_PR=$(gh pr list --head $BRANCH_NAME --state open --json number -q '.[0].number')
-          echo "EXISTING_PR=$EXISTING_PR" >> $GITHUB_ENV
-
-      - name: Create PR if none exists
-        if: env.EXISTING_PR == ''
-        run: |
-          gh pr create \
-            --title "blog update from obsidian" \
-            --head obsidian-import \
-            --base main \
-            --body "Automatisch erstellter PR für Obsidian Blog-Updates." \
-            --maintainer-can-modify
+      - name: Create Pull Request
+    uses: peter-evans/create-pull-request@v3.10.1
+    with:
+      token: ${{ secrets.GH_TOKEN }}
+      commit-message: Auto Pull Request
+      title: your title
+      body: Auto-created Pull Request
+      branch: ${{ github.ref }} # The branch where you commit
+      base: main # Don't forget to
