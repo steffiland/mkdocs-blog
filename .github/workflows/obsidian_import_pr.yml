@@ -1,4 +1,4 @@
-name: Create Pull Request for obsidian-import
+name: obsidian_import_pr
 
 # Cron-Trigger: stündlich
 on:
