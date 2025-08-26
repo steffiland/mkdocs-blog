@@ -3,7 +3,7 @@ name: Create Pull Request for obsidian-import
 # Cron-Trigger: stündlich
 on:
   schedule:
-    - cron: '* 6,21,36,51 * * *'  # alle 15min
+    - cron: '* 6,21,36,51,56 * * *'  # alle 15min
 
 jobs:
   create-pr:
