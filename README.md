@@ -1,4 +1,4 @@
 # hello world 
 
-foobar.
-baar foo.
+* foobar.
+* baar foo.
