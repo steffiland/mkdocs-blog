@@ -93,6 +93,8 @@ markdown_extensions:
 plugins:
   - blog:
       post_url_date_format: yyyy/MM
+      blog_toc: true
+      
 
 extra:
   social:
