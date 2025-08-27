@@ -1,34 +1,46 @@
-name: obsidian_import_pr
+name: Auto PR from obsidian-import
 
-# Cron-Trigger: stündlich
 on:
+  push:
+    branches:
+      - obsidian-import
   schedule:
-    - cron: "*/10 * * * *"  # alle 10min
+    - cron: "*/15 * * * *" # alle 15 Minuten
 
 jobs:
   create-pr:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout@v4
 
-      - name: Set Branch Name
-        run: echo "BRANCH_NAME=obsidian-import" >> $GITHUB_ENV
-
-      - name: Check for existing PR
-        id: check_pr
+      - name: Check if PR already exists
+        id: pr-check
         run: |
-          EXISTING_PR=$(gh pr list --head $BRANCH_NAME --state open --json number -q '.[0].number')
-          echo "EXISTING_PR=$EXISTING_PR" >> $GITHUB_ENV
-
-      - name: Create PR if none exists
-        if: env.EXISTING_PR == ''
-        run: |
-          gh pr create \
-            --title "blog update from obsidian" \
+          PR_NUMBER=$(gh pr list \
             --head obsidian-import \
             --base main \
-            --body "Automatisch erstellter PR für Obsidian Blog-Updates." \
-            --maintainer-can-modify
+            --state open \
+            --json number \
+            --jq '.[0].number')
+          
+          if [ -n "$PR_NUMBER" ]; then
+            echo "Ein offener PR (#$PR_NUMBER) existiert bereits."
+            echo "pr_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "Kein offener PR gefunden."
+            echo "pr_exists=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Create PR if none exists
+        if: steps.pr-check.outputs.pr_exists == 'false'
+        run: |
+          gh pr create \
+            --title "Update from obsidian-import" \
+            --body "Automatisch erstellter Pull Request aus obsidian-import." \
+            --base main \
+            --head obsidian-import
+        env:
+          GH_TOKEN: ${{ github.token }}
