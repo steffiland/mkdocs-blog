@@ -5,7 +5,7 @@ on:
     branches:
       - obsidian-import
   schedule:
-    - cron: "*/15 * * * *" # alle 15 Minuten
+    - cron: "3 * * * *" # stündlich   ## "*/15 * * * *" # alle 15 Minuten
 
 jobs:
   create-pr:
