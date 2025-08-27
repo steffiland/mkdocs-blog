@@ -1,31 +1,46 @@
-name: obsidian_import_pr
+name: Auto PR from obsidian-import
 
-# Cron-Trigger: stündlich
 on:
-  schedule:
-    - cron: "*/10 * * * *"  # alle 10min
   push:
     branches:
       - obsidian-import
+  schedule:
+    - cron: "*/15 * * * *" # alle 15 Minuten
 
 jobs:
   create-pr:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3.10.1
-        with:
-          token: ${{ secrets.GH_TOKEN }}
-          commit-message: Auto Pull Request
-          title: your title
-          body: Auto-created Pull Request
-          branch: ${{ github.ref }} # The branch where you commit
-          base: main # Don't forget to
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  create-pull-request:
-    runs-on: ubuntu-latest
-    steps:
-      - name: create pull request
-        run: gh pr create -B main -H obsidian-import --title 'Merge obsidian-import into main' --body 'Created by Github action'
+      - name: Check if PR already exists
+        id: pr-check
+        run: |
+          PR_NUMBER=$(gh pr list \
+            --head obsidian-import \
+            --base main \
+            --state open \
+            --json number \
+            --jq '.[0].number')
+          
+          if [ -n "$PR_NUMBER" ]; then
+            echo "Ein offener PR (#$PR_NUMBER) existiert bereits."
+            echo "pr_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "Kein offener PR gefunden."
+            echo "pr_exists=false" >> $GITHUB_OUTPUT
+          fi
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Create PR if none exists
+        if: steps.pr-check.outputs.pr_exists == 'false'
+        run: |
+          gh pr create \
+            --title "Update from obsidian-import" \
+            --body "Automatisch erstellter Pull Request aus obsidian-import." \
+            --base main \
+            --head obsidian-import
+        env:
+          GH_TOKEN: ${{ github.token }}
