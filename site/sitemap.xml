@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>None./</loc>
+        <lastmod>2025-08-28</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+        <xhtml:link rel="alternate" hreflang="de" href="Nonede/"/>
+    </url>
+    <url>
+        <loc>Nonecode-examples/</loc>
+        <lastmod>2025-08-28</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecode-examples/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="Nonede/code-examples/"/>
+    </url>
+    <url>
+        <loc>Noneblog/</loc>
+        <lastmod>2025-08-28</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneblog/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="Nonede/blog/"/>
+    </url>
+    <url>
+        <loc>Nonede/</loc>
+        <lastmod>2025-08-28</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="Nonede/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="None"/>
+    </url>
+    <url>
+        <loc>Nonede/code-examples/</loc>
+        <lastmod>2025-08-28</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="Nonede/code-examples/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Nonecode-examples/"/>
+    </url>
+    <url>
+        <loc>Nonede/blog/</loc>
+        <lastmod>2025-08-28</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="de" href="Nonede/blog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="Noneblog/"/>
+    </url>
+</urlset>

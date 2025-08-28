@@ -22,7 +22,7 @@ RUN addgroup -g ${GID} mkdocs && \
 
 # Pip-Pakete aus requirements.txt installieren
 COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt && rm /tmp/requirements.txt
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

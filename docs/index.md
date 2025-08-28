@@ -2,6 +2,16 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
+{% block announce %}
+{% if config.theme.language == 'nl' %}
+Welkom!
+{% elif config.theme.language == 'en' %}
+Welcome!
+{% else %}
+Bienvenue !
+{% endif %}
+{% endblock %}
+
 ## Commands
 
 * `mkdocs new [dir-name]` - Create a new project.
@@ -15,3 +25,43 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+
+## test 
+
+!!! example
+
+    === "Unordered List"
+
+        ``` markdown
+        * Sed sagittis eleifend rutrum
+        * Donec vitae suscipit est
+        * Nulla tempor lobortis orci
+        ```
+
+    === "Ordered List"
+
+        ``` markdown
+        1. Sed sagittis eleifend rutrum
+        2. Donec vitae suscipit est
+        3. Nulla tempor lobortis orci
+        ```
+
+    some text below
+---
+
+## test2
+
+=== "Unordered list"
+
+    * Sed sagittis eleifend rutrum
+    * Donec vitae suscipit est
+    * Nulla tempor lobortis orci
+
+=== "Ordered list"
+
+    1. Sed sagittis eleifend rutrum
+    2. Donec vitae suscipit est
+    3. Nulla tempor lobortis orci
+
+---

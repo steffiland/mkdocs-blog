@@ -35,8 +35,8 @@ theme:
   #logo: assets/logo.png
   #favicon: assets/favicon.png
   features:
-#    - navigation.tabs
-#    - navigation.top
+    - navigation.tabs
+    - navigation.top
 #    - search.highlight
 #    - search.suggest
 #    - toc.integrate
@@ -91,10 +91,10 @@ markdown_extensions:
   - pymdownx.details
 
 plugins:
+  - search
   - blog:
       post_url_date_format: yyyy/MM
       blog_toc: true
-      
 
 extra:
   social:
