@@ -10,6 +10,7 @@ theme:
 
     # Dark Mode
     - scheme: slate
+      media: "(prefers-color-scheme: dark)"
       toggle:
         icon: material/weather-sunny
         name: Dark mode
@@ -18,6 +19,7 @@ theme:
 
     # Light Mode
     - scheme: default
+      media: "(prefers-color-scheme: light)"
       toggle:
         icon: material/weather-night
         name: Light mode
@@ -35,24 +37,24 @@ theme:
   #logo: assets/logo.png
   #favicon: assets/favicon.png
   features:
-    - navigation.tabs
-    - navigation.top
+    - navigation.tabs #moves the nav to the top of the page, with tabs
+    - navigation.top #moves the nav to the top of the page
 #    - search.highlight
 #    - search.suggest
-#    - toc.integrate
-#    - content.code.annotate
-#    - content.code.copy
-#    - content.code.fold
-#    - content.tabs.link
+#    - toc.integrate #integrates the table of contents into the navigation
+    - content.code.annotate #line numbers in code blocks
+    - content.code.copy #copy button for code blocks
+    - content.code.highlight
+#    - content.tabs.link 
 #    - header.autohide
-#    - navigation.sections
+#    - navigation.sections #collapsible sections in nav
 #    - navigation.instant
 #    - navigation.expand
-#    - navigation.tracking
-#    - navigation.indexes
-    - navigation.footer
-#    - footer.social
-#    - footer.icons
+    - navigation.tracking #highlights current page in nav
+#    - navigation.indexes #
+    - navigation.footer #previous and next buttons at bottom of page
+#    - footer.social #social icons in footer
+#    - footer.icons #footer icons
 #    - palette.toggle
 #    - palette.switcher
 #  icon:
@@ -74,7 +76,7 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences:
+  - pymdownx.superfences: 
       ## add support for inline mermaid diagrams
       custom_fences:
         - name: mermaid

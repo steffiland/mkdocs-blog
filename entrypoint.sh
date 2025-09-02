@@ -1,12 +1,20 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
-# Nur als root ausführen
+echo "[entrypoint] running as UID $(id -u)"
+
+# Only run chown as root
 if [ "$(id -u)" = "0" ]; then
-    chown -R ${UID}:${GID} /docs /docs/docs /docs/macros || true
-    exec su-exec ${UID}:${GID} "$0" "$@"  # Skript als Nicht-Root erneut ausführen
+    echo "[entrypoint] running chown for UID=${UID} GID=${GID}"
+    chown -R "${UID}:${GID}" /docs /docs/docs /docs/macros || true
+    # Use su-exec if available, otherwise fallback to su (alpine-sh compatible)
+    if command -v su-exec >/dev/null 2>&1; then
+        exec su-exec "$UID:$GID" "$0" "$@"
+    else
+        exec su -s /bin/sh -c "$0 $*"
+    fi
     exit
 fi
 
-# Ab hier läuft das Skript als mkdocs User
+echo "[entrypoint] running as user"
 exec "$@"

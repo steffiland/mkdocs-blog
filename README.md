@@ -6,6 +6,7 @@
 ## Vorbereitung
 
 ```bash
+pip install --user pipenv
 pipenv install -r requirements.txt
 pipenv shell
 
