@@ -8,7 +8,7 @@ date: 2025-09-06
 
 # Glutenfreies Brot - fluffig und gesund
 
-Inspiration: https://www.sat1.de/themen/food/rezepte/glutenfreies-brot-selbst-machen-mit-diesem-rezept-wird-es-aussen-knusprig-und-innen-koestlich-saftig-348894
+Inspiration: [SAT1.de -GF Brot](https://www.sat1.de/themen/food/rezepte/glutenfreies-brot-selbst-machen-mit-diesem-rezept-wird-es-aussen-knusprig-und-innen-koestlich-saftig-348894)
 
 ## Zutaten
 
@@ -49,4 +49,4 @@ Inspiration: https://www.sat1.de/themen/food/rezepte/glutenfreies-brot-selbst-ma
 	* 8g Salz
 * Gare 35°C 2h im Airfryer
 * Backen auch im Airfryer. Backmodus 160° 40min
-	* ich hatte 2 runde Glasformen, eine große und eine kleine. Das war nicht ideal. Nächstes Mal lieber eine (oder 2) Silikon Kastenform nehmen und ggf die Teigmenge etwas anpassen.
+	* ich hatte 2 runde Glasformen, eine große und eine kleine. Das war nicht ideal, die Wärmeleitfähigkeit hat gefehlt. Nächstes Mal lieber eine (oder 2) Silikon Kastenform nehmen und ggf die Teigmenge etwas anpassen.
