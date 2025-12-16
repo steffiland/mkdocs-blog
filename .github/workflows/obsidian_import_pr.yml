@@ -37,10 +37,6 @@ jobs:
       - name: Create PR if none exists
         if: steps.pr-check.outputs.pr_exists == 'false'
         run: |
-          gh pr create \
-            --title "Update from obsidian-import" \
-            --body "Automatisch erstellter Pull Request aus obsidian-import." \
-            --base main \
-            --head obsidian-import
+          gh pr create --title "obsidian-import" --body "AutoPR obsidian-import" --base main --head obsidian-import
         env:
           GH_TOKEN: ${{ github.token }}
