@@ -2,6 +2,7 @@ site_name: HookieWookie
 #site_url: https://hookiewookie.github.io
 theme:
   name: material
+  custom_dir: overrides
   palette:
     # see here: https://jameswillett.dev/getting-started-with-material-for-mkdocs/#toggle-lightdark-modes
     # switching light/dark automatic based on time of the day:
@@ -104,5 +105,8 @@ extra:
       link: https://linktr.ee/HookieWookie
     - icon: simple/instagram
       link: https://www.instagram.com/hookiewookie_crochet/
+
+extra_javascript:
+  - https://js.ravelry.com/cart/2.0.js
 
 copyright: Copyright &copy; 2025 HookieWookie
