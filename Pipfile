@@ -7,7 +7,7 @@ name = "pypi"
 mkdocs-material = "*"
 mkdocs-macros-plugin = "*"
 mkdocs-glightbox = "*"
-mkdocs-static-i18n = "*"
+mkdocs-static-i18n = {extras = ["material"], version = "*"}
 
 [dev-packages]
 

@@ -2,7 +2,7 @@ site_name: HookieWookie
 #site_url: https://hookiewookie.github.io
 theme:
   name: material
-  #custom_dir: overrides
+  custom_dir: overrides
   palette:
     # see here: https://jameswillett.dev/getting-started-with-material-for-mkdocs/#toggle-lightdark-modes
     # switching light/dark automatic based on time of the day:
