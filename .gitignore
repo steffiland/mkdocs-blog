@@ -1,2 +1,13 @@
 .trash
 .obsidian
+# MkDocs build Verzeichnis
+site/
+
+# Lokale Konfigurationen oder Cache
+.cache/
+.DS_Store
+
+# Python venvs
+venv/
+__pycache__/
+.venv/
