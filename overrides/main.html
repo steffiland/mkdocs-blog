@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
 {% block announce %}
-  {# Teste erst mal ohne komplexe Logik #}
-  Willkommen auf meinem Blog!
+{% if config.theme.language == 'de' %}
+Willkommen!
+{% elif config.theme.language == 'en' %}
+Welcome!
+{% else %}
+Bienvenue !
+{% endif %}
 {% endblock %}

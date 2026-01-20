@@ -1,6 +1,7 @@
 site_name: HookieWookie
 #site_url: https://hookiewookie.github.io
 theme:
+  language: en
   name: material
   custom_dir: overrides
   palette:

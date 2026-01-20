@@ -2,15 +2,14 @@
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-{% block announce %}
-{% if config.theme.language == 'nl' %}
-Welkom!
+mm
+{% if config.theme.language == 'de' %}
+Willkommen!
 {% elif config.theme.language == 'en' %}
 Welcome!
 {% else %}
 Bienvenue !
 {% endif %}
-{% endblock %}
 
 ## Commands
 
