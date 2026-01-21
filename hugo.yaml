@@ -1,6 +1,10 @@
 baseURL: 'https://example.org/'
 title: "HookieWookie"
 
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 params: #geht auch pro Sprache
   mainSections:
