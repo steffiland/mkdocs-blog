@@ -20,7 +20,7 @@ docker compose up -d
 
 ```bash
 # Testserver, der sich laufend selbst aktualisiert
-hugo server -p ${PORT}
+hugo server --port ${PORT} --buildDrafts
 
 # bauen
 hugo

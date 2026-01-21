@@ -1,14 +1,10 @@
 ---
 tags:
-- rezept
-- glutenfrei
-- backen
-- grundrezept
+- glutenfree
+- bake
 date: 2022-01-24
+title: Rührkuchen
 ---
-
-
-# Rührkuchen Grundrezept
 
 Rezept frei nach Lidl-Universalmehl-Packung und Hammermühle Rezepten
 

@@ -1,8 +1,9 @@
 ---
 tags:
-- note
-- private
+- bake
+- glutenfree
 date: 2025-09-06
+title: Ballaststoffbrot
 ---
 
 # Glutenfreies Ballaststoffbrot

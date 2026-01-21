@@ -24,7 +24,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-    command: ["hugo", "server", "-p", "8000"]
+    command: ["hugo", "server", "-p", "8000", "--buildDrafts"]
 
 
   # To build the site on demand, use:

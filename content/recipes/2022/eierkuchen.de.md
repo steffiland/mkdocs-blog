@@ -1,11 +1,9 @@
 ---
 tags:
-- glutenfrei
-- rezept
+- glutenfree
 date: 2022-07-09
+title: Eierkuchen
 ---
-
-# Eierkuchen
 
 ## Zutaten
  - 4	Eier

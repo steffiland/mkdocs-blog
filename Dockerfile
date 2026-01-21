@@ -49,4 +49,4 @@ WORKDIR /docs
 # Default CMD (hier ist die Angabe optional), kann im Compose überschrieben werden
 # das entrypoint script korrigiert Permissions und macht danach den Userwechsel selbst
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
-CMD ["hugo", "server", "--port", 8000 ]
+CMD ["hugo", "server", "--port", 8000, "--buildDrafts" ]
