@@ -39,8 +39,8 @@ COPY --from=builder /usr/local /usr/local
 COPY entrypoint.sh /entrypoint.sh
 
 # Nicht-root User + Gruppe anlegen
-RUN addgroup -g ${GID} mkdocs && \
-    adduser -D -u ${UID} -G mkdocs mkdocs && \
+RUN addgroup -g ${GID} cheffie && \
+    adduser -D -u ${UID} -G cheffie cheffie && \
     chmod +x /entrypoint.sh && ls -la /entrypoint.sh 
 
 # Arbeitsverzeichnis und user
@@ -49,4 +49,4 @@ WORKDIR /docs
 # Default CMD (hier ist die Angabe optional), kann im Compose überschrieben werden
 # das entrypoint script korrigiert Permissions und macht danach den Userwechsel selbst
 ENTRYPOINT ["/bin/sh", "/entrypoint.sh"]
-CMD ["mkdocs", "serve"]
+CMD ["hugo", "server", "--port", 8000 ]

@@ -1,0 +1,31 @@
+baseURL: 'https://example.org/'
+title: "HookieWookie"
+
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    languageCode: 'en-us'
+    weight: 1
+    title: "My Creative Blog"
+    menu:
+      main:
+        - name: "Categories"
+          url: "/categories/"
+          weight: 2
+  de:
+    languageName: Deutsch
+    languageCode: 'de-de'
+    weight: 2
+    title: "Mein kreativer Blog"
+    menu:
+      main:
+        - name: "Kategorien"
+          url: "/de/categories/"
+          weight: 2
+
+taxonomies:
+  category: categories
+  tag: tags
+
+theme: "ananke"

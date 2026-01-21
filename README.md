@@ -1,4 +1,4 @@
-# MKDOcs Static Pages Blog
+# Static Pages Blog
 
 * in `./.github/` ist eine Pipeline für den Bau in Github Pages
 * außerdem geht auch lokal:
@@ -7,7 +7,7 @@
 
 ```bash
 pip install --user pipenv
-pipenv install -r requirements.txt
+pipenv install
 pipenv shell
 
 # oder Docker 
@@ -20,8 +20,8 @@ docker compose up -d
 
 ```bash
 # Testserver, der sich laufend selbst aktualisiert
-mkdocs serve -a 0.0.0.0:8000
+hugo server -p ${PORT}
 
 # bauen
-mkdocs build
+hugo
 ```

@@ -1,7 +1,13 @@
 .trash
 .obsidian
+.vscode/
 # MkDocs build Verzeichnis
 site/
+
+# hugo build Verzeichnis
+public/
+resources/
+
 
 # Lokale Konfigurationen oder Cache
 .cache/

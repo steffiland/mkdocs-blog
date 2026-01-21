@@ -1,6 +1,6 @@
 ---
 publish: false
-date: "[[2025-08-24]]"
+date: 2025-08-24
 tags:
   - note
   - private
