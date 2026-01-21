@@ -1,13 +1,45 @@
 baseURL: 'https://example.org/'
 title: "HookieWookie"
 
+
 params: #geht auch pro Sprache
   mainSections:
     - posts
     - patterns
   show_reading_time: true
-  
-
+  ananke:
+    social:
+      icons: true
+      sharetext: true
+      pinterest:
+        username: steffiland
+      github:
+        username: steffiland
+      linktree:
+        username: HookieWookie
+      ravelry:
+        username: HookieWookie
+      share: 
+      follow:
+        networks:
+        - github
+        - pinterest
+        - linktree
+        - ravelry
+      networks:
+        linktree:
+          slug: linktree
+          label: Linktree
+          profile: "https://linktr.ee/%s"
+          icon: "linktree"
+          color: "#43e660"
+        ravelry:
+          slug: ravelry
+          label: Ravelry
+          profile: "https://www.ravelry.com/designers/%s"
+          icon: "ravelry"
+          color: "#3c5d8d"
+            
 defaultContentLanguage: en
 languages:
   en:

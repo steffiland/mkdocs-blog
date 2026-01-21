@@ -17,3 +17,5 @@ matrix:
 
 * https://gohugo.io/content-management/diagrams/
 * featured image bzw hintergrundbild https://github.com/theNewDynamic/gohugo-theme-ananke/wiki/Customization-Herosection
+* https://gohugo.io/content-management/syntax-highlighting/
+* https://gohugo.io/content-management/menus/

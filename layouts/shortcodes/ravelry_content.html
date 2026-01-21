@@ -1,0 +1,30 @@
+Find this pattern on <a href="https://www.ravelry.com/patterns/library/{{ .Page.Params.ravelry_pattern_slug }}" >Ravelry</a> 
+<a href="http://www.ravelry.com/badges/redirect?p={{ .Page.Params.ravelry_pattern_slug }}">
+    <img src="https://api.ravelry.com/badges/projects?p={{ .Page.Params.ravelry_pattern_slug }}&t=.svg" style="border: none;" />
+</a>
+or buy it here: 
+<a href="http://www.ravelry.com/purchase/hookiewookie/{{ .Page.Params.ravelry_pattern_id }}">
+    <i class="fa-solid fa-bolt-lightning"></i> Sofort kaufen
+  </a>
+
+  
+<a href="#" onclick="R.cart.add({{ .Page.Params.ravelry_cart_id }}, {{ .Get 0 }}); return false;">
+    {{ T "add to cart" }}
+</a>
+<a href="#" onclick="R.cart.show({{ .Page.Params.ravelry_cart_id }}); return false;">
+    {{ with .Get 0 }}{{ . }}{{ else }}{{ T "show cart" }}{{ end }}
+</a>
+
+  <div class="button-row">
+        <a href="#" class="btn">
+            <i class="fa-solid fa-cart-plus"></i> Hinzufügen
+        </a>
+
+        <a href="#" class="btn btn-buy">
+            <i class="fa-solid fa-bolt-lightning"></i> Sofort kaufen
+        </a>
+
+        <a href="#" class="btn">
+            <i class="fa-solid fa-basket-shopping"></i> Warenkorb
+        </a>
+    </div>
