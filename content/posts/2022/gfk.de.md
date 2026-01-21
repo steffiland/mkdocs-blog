@@ -1,13 +1,10 @@
 ---
 tags:
-- note
-- private
-- work
+- communication
 date: 2022-03-03
 ---
 
-
-# GFK Basics
+# GFK Grundlagen
 
 * **Wünsche statt Kritik** äußern
 * **Bitte statt Forderung**, denn eine Forderung beinhaltet Sanktionen (oder erzeugt Angst oder Schuldgefühle)

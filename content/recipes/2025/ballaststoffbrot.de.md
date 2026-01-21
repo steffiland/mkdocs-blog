@@ -5,8 +5,7 @@ tags:
 date: 2025-09-06
 ---
 
-
-# Glutenfreies Brot - fluffig und gesund
+# Glutenfreies Ballaststoffbrot
 
 Inspiration: [SAT1.de -GF Brot](https://www.sat1.de/themen/food/rezepte/glutenfreies-brot-selbst-machen-mit-diesem-rezept-wird-es-aussen-knusprig-und-innen-koestlich-saftig-348894)
 
