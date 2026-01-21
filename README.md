@@ -25,3 +25,7 @@ hugo server -p ${PORT}
 # bauen
 hugo
 ```
+
+# Pipeline
+
+die Github Pipeline springt nur an, wenn die commit Message `#deploy` enthält.
