@@ -1,31 +1,40 @@
 baseURL: 'https://example.org/'
 title: "HookieWookie"
 
+params: #geht auch pro Sprache
+  mainSections:
+    - posts
+    - patterns
+  show_reading_time: true
+  
+
 defaultContentLanguage: en
 languages:
   en:
     languageName: English
     languageCode: 'en-us'
     weight: 1
-    title: "My Creative Blog"
-    menu:
-      main:
-        - name: "Categories"
-          url: "/categories/"
-          weight: 2
+
   de:
     languageName: Deutsch
     languageCode: 'de-de'
     weight: 2
-    title: "Mein kreativer Blog"
-    menu:
-      main:
-        - name: "Kategorien"
-          url: "/de/categories/"
-          weight: 2
+    #title: "Mein kreativer Blog"
+
 
 taxonomies:
   category: categories
   tag: tags
 
-theme: "ananke"
+sectionPagesMenu: "main"
+
+permalinks:
+  posts: /blog/:year/:slug/
+  patterns: /patterns/:slug/
+  recipes: /recipes/:slug/
+  section:
+    posts: /blog/
+    patterns: /patterns/
+    recipes: /recipes/
+
+theme: ananke
