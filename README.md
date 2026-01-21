@@ -3,6 +3,7 @@
 * in `./.github/` ist eine Pipeline für den Bau in Github Pages
 * außerdem geht auch lokal:
 
+
 ## Vorbereitung
 
 ```bash
@@ -14,7 +15,7 @@ pipenv shell
 docker compose up -d
 ```
 
-## mkdocs Befehle
+## Befehle
 
 * ggf. `pipenv run` davor setzen:
 
@@ -28,4 +29,4 @@ hugo
 
 # Pipeline
 
-die Github Pipeline springt nur an, wenn die commit Message `#deploy` enthält.
+die Github Pipeline springt nur an, wenn die commit Message `#deploy` enthält. Angucken dann hier: https://steffiland.github.io/mkdocs-blog/
