@@ -4,7 +4,7 @@ Find this pattern on <a href="https://www.ravelry.com/patterns/library/{{ .Page.
  or buy it here:
 
   <div class="button-row">
-        <a href="#" class="btn" onclick="R.cart.add({{ .Page.Params.ravelry_cart_id }}, {{ .Get 0 }}); return false;">
+        <a href="#" class="btn" onclick="R.cart.add({{ .Page.Params.ravelry_cart_id }}, {{ .Page.Params.ravelry_pattern_id }}); return false;">
             <i class="fa-solid fa-cart-plus"></i>  {{ T "add to cart" }}
         </a>
 
