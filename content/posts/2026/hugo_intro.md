@@ -21,4 +21,4 @@ matrix:
 * https://gohugo.io/content-management/menus/
 
 
-<a data-flickr-embed="true" data-header="true" href="https://www.flickr.com/photos/202509143@N07/albums/72177720324737096" title="beadwork"><img src="https://live.staticflickr.com/65535/54417585854_c60d91f7fd_c.jpg" width="800" height="600" alt="beadwork"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+<a data-flickr-embed="true" data-header="true" data-footer="true" href="https://www.flickr.com/photos/202509143@N07/albums/72177720324737096" title="beadwork"><img src="https://live.staticflickr.com/65535/54417585854_c60d91f7fd_c.jpg" width="800" height="600" alt="beadwork"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
