@@ -1,6 +1,6 @@
 ---
 date: 2026-01-21
-draft: false
+draft: true
 title: Hugo Intro
 matrix:
   languages:
@@ -20,5 +20,15 @@ matrix:
 * https://gohugo.io/content-management/syntax-highlighting/
 * https://gohugo.io/content-management/menus/
 
+* Ananke benutzt Tachyons, das sieht so aus: https://tachyons.io/#style  und bringt schon viele CSS Klassen mit.
 
-<a data-flickr-embed="true" data-header="true" data-footer="true" href="https://www.flickr.com/photos/202509143@N07/albums/72177720324737096" title="beadwork"><img src="https://live.staticflickr.com/65535/54417585854_c60d91f7fd_c.jpg" width="800" height="600" alt="beadwork"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+---
+
+{{< img src="https://live.staticflickr.com/65535/54417585854_c60d91f7fd_c.jpg" alt="Herz aus Perlmutt-Perlen" caption="Mein selbst entworfener Perlenanhänger ♥️ mit Right-Angle-Weave-Technik genäht" link="https://www.flickr.com/photos/202509143@N07/albums/72177720324737096" >}}
+
+---
+
+ {{< gallery srcs=`[
+    "https://live.staticflickr.com/65535/54746924588_e749884c47_b.jpg", 
+    "https://live.staticflickr.com/65535/54417585854_c60d91f7fd_c.jpg"
+    ]` >}}

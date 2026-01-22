@@ -20,8 +20,8 @@ docker compose up -d
 * ggf. `pipenv run` davor setzen:
 
 ```bash
-# Testserver, der sich laufend selbst aktualisiert
-hugo server --port ${PORT} --buildDrafts
+# Testserver, der sich laufend selbst aktualisiert, -D = --buildDrafts
+hugo server --port ${PORT} -D
 
 # bauen
 hugo

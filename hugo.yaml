@@ -74,3 +74,11 @@ permalinks:
     recipes: /recipes/
 
 theme: ananke
+
+caches:
+  assets:
+    dir: ":cacheDir/assets"
+    maxAge: "720h" # 30 Tage
+  images:
+    dir: ":cacheDir/images"
+    maxAge: "720h"

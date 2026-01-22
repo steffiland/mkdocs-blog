@@ -5,8 +5,19 @@
 # Lokale Konfigurationen oder Cache
 .cache/
 .DS_Store
+Thumbs.db
 
 # Python venvs
 venv/
 __pycache__/
 .venv/
+
+# Hugo
+# Hugo Standard-Ausgabe
+public/
+resources/_gen/
+hugo_stats.json
+# Build Sperrdatei
+.hugo_build.lock
+# Cache (besonders wichtig für deine Remote-Flickr-Bilder)
+hugo_cache/
