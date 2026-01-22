@@ -1,0 +1,44 @@
+{{/*  Shortcode: gallery
+  Beschreibung: Erstellt eine Bildergalerie mit Thumbnails und Lightbox-Funktionalität.
+  Parameter:
+    - srcs: JSON-Array mit Pfaden oder URLs zu den Bildern (erforderlich)
+
+  Beispiel Nutzung:
+    {{< gallery srcs='["path/to/image1.jpg", "https://example.com/image2.jpg"]' >}}
+    {{< gallery srcs=`["https://live.staticflickr.com/...", "images/lokales-bild.jpg"]` >}}
+*/}}
+<div class="pswp-gallery flex flex-wrap" id="my-gallery">
+  {{ $images := .Get "srcs" | transform.Unmarshal }}
+  
+  {{ range $images }}
+    {{ $img := "" }}
+    {{ if (hasPrefix . "http") }}
+      {{ $img = resources.GetRemote . }}
+    {{ else }}
+      {{ $img = resources.Get . }}
+    {{ end }}
+
+    {{ if $img }}
+      {{/* 1. Thumbnail für die Galerie-Ansicht (klein & quadratisch) vgl. https://www.google.com/search?q=https://gohugo.io/content-management/image-processing/%23smart-crop-feature-detection */}}
+      {{ $thumb := $img.Fill "400x400 webp q70 Smart" }}
+      
+      {{/* 2. Große Version für die Lightbox (max 1600px) */}}
+      {{ $large := $img.Resize "1600x webp q80" }}
+
+      <div class="pa2 w-50 w-25-l">
+        <a href="{{ $large.RelPermalink }}" 
+           data-pswp-width="{{ $large.Width }}" 
+           data-pswp-height="{{ $large.Height }}" 
+           target="_blank"
+           class="db ba b--black-10 hover-shadow shadow-hover"> {{/* https://tachyons.io/docs/layout/spacing/ https://tachyons.io/docs/themes/hovers/ */}}
+          <img src="{{ $thumb.RelPermalink }}" 
+               width="{{ $thumb.Width }}" 
+               height="{{ $thumb.Height }}" 
+               alt="Gallery Image" 
+               loading="lazy"
+               class="w-100 db">
+        </a>
+      </div>
+    {{ end }}
+  {{ end }}
+</div>

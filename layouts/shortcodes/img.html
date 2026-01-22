@@ -1,0 +1,69 @@
+{{/*  Shortcode: img
+  Beschreibung: Fügt ein responsives Bild mit verschiedenen Größen ein.
+  Parameter:
+    - src: Pfad oder URL zum Bild (erforderlich)
+    - alt: Alternativtext für das Bild (optional)
+    - class: CSS-Klasse für das Bild (optional)
+    - caption: Bildunterschrift (optional)
+    - link: URL zum Verlinken des Bildes (optional)
+    Nutzung: 
+        {{< img src="path/to/image.jpg" alt="Beschreibung" class="img-shadow" caption="Bildunterschrift" >}}
+
+Dieser Shortcode generiert drei verschiedene Größen (400px, 800px, 1200px) und stellt sie dem Browser zur Wahl.
+srcset: Hier listen wir die URLs und deren tatsächliche Breite (z. B. 400w) auf. Der Browser weiß nun, welche Dateien zur Verfügung stehen.
+sizes: Das ist die "Bedienungsanleitung" für den Browser. Wir sagen ihm: "Wenn der Bildschirm schmaler als 800px ist, nimm ein Bild, das die volle Breite (100vw) einnimmt. Ansonsten ist das Bild maximal 800px breit."
+Automatisierung: Hugo kümmert sich im Hintergrund um das Herunterladen (z.B. von Flickr), das Caching, das Resizing und das Umwandeln in WebP für alle drei Versionen.
+
+*/}}
+
+{{- $src := .Get "src" -}}
+{{- $class := .Get "class" | default "" -}}
+{{- $link := .Get "link" -}} 
+{{- $explicitCaption := .Get "caption" -}}
+
+{{/* Ressource laden (lokal oder remote) */}}
+{{- $img := "" -}}
+{{- if (hasPrefix $src "http") -}}
+  {{- $img = resources.GetRemote $src -}}
+{{- else -}}
+  {{- $img = resources.Get $src -}}
+{{- end -}}
+
+{{- if $img -}}
+  {{/* Verschiedene Größen generieren */}}
+  {{- $small := $img.Resize "400x webp q75" -}}
+  {{- $medium := $img.Resize "800x webp q75" -}}
+  {{- $large := $img.Resize "1200x webp q75" -}}
+
+  {{/* 1. Entscheidung: Welche Caption nutzen wir? */}}
+  {{- $finalCaption := "" -}}
+  
+  {{- if $explicitCaption -}}
+    {{- $finalCaption = $explicitCaption -}}
+  {{- else if $img.Exif -}}
+    {{/* Wir suchen in den EXIF-Daten nach typischen Feldern wie 'ImageDescription' oder 'Title' */}}
+    {{- $finalCaption = $img.Exif.Tags.ImageDescription | default $img.Exif.Tags.Title -}}
+  {{- end -}}
+  {{- $alt := .Get "alt" | default $finalCaption -}}
+
+  <figure class="image-container {{ $class }}">
+    {{ if $link }}<a href="{{ $link }}">{{ end }}<img 
+      src="{{ $medium.RelPermalink }}" 
+      srcset="
+        {{ $small.RelPermalink }} 400w,
+        {{ $medium.RelPermalink }} 800w,
+        {{ $large.RelPermalink }} 1200w"
+      sizes="(max-width: 800px) 100vw, 800px"
+      width="{{ $medium.Width }}" 
+      height="{{ $medium.Height }}" 
+      alt="{{ $alt }}"
+      class="{{ $class }}"
+      loading="lazy">{{ if $link }}</a>{{ end }}
+    
+    {{- with $finalCaption -}}
+      <figcaption>{{ . }}</figcaption>
+    {{ end }}
+  </figure>
+{{- else -}}
+  <p style="color: red;">Missing: {{ $src }}</p>
+{{- end -}}
