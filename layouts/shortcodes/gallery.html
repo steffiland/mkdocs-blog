@@ -33,7 +33,8 @@
            class="db ba b--black-10 hover-shadow shadow-hover"> {{/* https://tachyons.io/docs/layout/spacing/ https://tachyons.io/docs/themes/hovers/ */}}
           <img src="{{ $thumb.RelPermalink }}" 
                width="{{ $thumb.Width }}" 
-               height="{{ $thumb.Height }}" 
+               {{/* height="{{ $thumb.Height }}" */}}
+               style="height: auto;"
                alt="Gallery Image" 
                loading="lazy"
                class="w-100 db">

@@ -1,10 +1,10 @@
 {{/*  Shortcode: img
   Beschreibung: Fügt ein responsives Bild mit verschiedenen Größen ein.
   Parameter:
-    - src: Pfad oder URL zum Bild (erforderlich)
-    - alt: Alternativtext für das Bild (optional)
+    - src: Pfad oder URL zum Bild (optional, bei Fehlen Fallback auf featured_image)
+    - alt: Alternativtext für das Bild (optional, bei Fehlen Fallback auf die Caption)
     - class: CSS-Klasse für das Bild (optional)
-    - caption: Bildunterschrift (optional)
+    - caption: Bildunterschrift (optional, bei Fehlen werden die EXIF-Daten durchsucht)
     - link: URL zum Verlinken des Bildes (optional)
     Nutzung: 
         {{< img src="path/to/image.jpg" alt="Beschreibung" class="img-shadow" caption="Bildunterschrift" >}}
@@ -20,6 +20,11 @@ Automatisierung: Hugo kümmert sich im Hintergrund um das Herunterladen (z.B. vo
 {{- $class := .Get "class" | default "" -}}
 {{- $link := .Get "link" -}} 
 {{- $explicitCaption := .Get "caption" -}}
+
+{{/* 2. Fallback auf featured_image, wenn src fehlt */}}
+{{- if not $src -}}
+  {{- $src = .Page.Params.featured_image | default .Site.Params.featured_image -}}
+{{- end -}}
 
 {{/* Ressource laden (lokal oder remote) */}}
 {{- $img := "" -}}
@@ -54,8 +59,9 @@ Automatisierung: Hugo kümmert sich im Hintergrund um das Herunterladen (z.B. vo
         {{ $medium.RelPermalink }} 800w,
         {{ $large.RelPermalink }} 1200w"
       sizes="(max-width: 800px) 100vw, 800px"
-      width="{{ $medium.Width }}" 
-      height="{{ $medium.Height }}" 
+      {{/* width="{{ $medium.Width }}" 
+      height="{{ $medium.Height }}" */}}
+      style="width: 100%; height: auto; display: block;"
       alt="{{ $alt }}"
       class="{{ $class }}"
       loading="lazy">{{ if $link }}</a>{{ end }}
